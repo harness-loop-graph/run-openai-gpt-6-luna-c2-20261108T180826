@@ -1,0 +1,225 @@
+{
+  "timestamp": "2026-11-08T18:39:42.331Z",
+  "batteries": [
+    {
+      "battery": "battery1-e2e",
+      "passed": false,
+      "checks": [
+        {
+          "name": "flows.spec.ts > login per role > login patient shows correct nav",
+          "passed": false,
+          "details": "[\"\\u001b[31mTest timeout of 150000ms exceeded.\\u001b[39m\"]"
+        },
+        {
+          "name": "flows.spec.ts > login per role > login professional shows correct nav",
+          "passed": false,
+          "details": "[\"\\u001b[31mTest timeout of 150000ms exceeded.\\u001b[39m\"]"
+        },
+        {
+          "name": "flows.spec.ts > login per role > login staff shows correct nav",
+          "passed": false,
+          "details": "[\"\\u001b[31mTest timeout of 150000ms exceeded.\\u001b[39m\"]"
+        },
+        {
+          "name": "flows.spec.ts > login per role > login admin shows correct nav",
+          "passed": false,
+          "details": "[\"\\u001b[31mTest timeout of 150000ms exceeded.\\u001b[39m\"]"
+        },
+        {
+          "name": "flows.spec.ts > patient flow > search, book, assert appointment appears",
+          "passed": false,
+          "details": "[\"\\u001b[31mTest timeout of 150000ms exceeded.\\u001b[39m\"]"
+        },
+        {
+          "name": "flows.spec.ts > professional flow > record encounter",
+          "passed": false,
+          "details": "[\"\\u001b[31mTest timeout of 150000ms exceeded.\\u001b[39m\"]"
+        },
+        {
+          "name": "flows.spec.ts > patient history > history contains encounter",
+          "passed": false,
+          "details": "[\"\\u001b[31mTest timeout of 150000ms exceeded.\\u001b[39m\"]"
+        },
+        {
+          "name": "flows.spec.ts > patient cancel > cancel appointment removes it",
+          "passed": false,
+          "details": "[\"\\u001b[31mTest timeout of 150000ms exceeded.\\u001b[39m\"]"
+        }
+      ],
+      "summary": {
+        "total": 8,
+        "passed": 0,
+        "failed": 8
+      }
+    },
+    {
+      "battery": "battery2-schema",
+      "passed": true,
+      "checks": [
+        {
+          "name": "table-usuario",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "table-rol",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "table-paciente",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "table-profesional",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "table-disponibilidad",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "table-cita",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "table-encuentro",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "table-adjunto",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "table-auditoria",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "fk-cita-paciente_id",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "fk-cita-profesional_id",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "fk-encuentro-cita_id",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "fk-adjunto-encuentro_id",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "fk-auditoria-usuario_id",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "notnull-cita.paciente_id",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "notnull-cita.profesional_id",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "notnull-cita.franja_inicio",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "notnull-cita.estado",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "notnull-encuentro.version",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "partial-unique-cita-professional-slot",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "check-cita-estado",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "check-encuentro-version",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "index-cita-franja_inicio",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "index-cita-paciente_id",
+          "passed": true,
+          "details": ""
+        }
+      ],
+      "summary": {
+        "total": 24,
+        "passed": 24,
+        "failed": 0
+      }
+    },
+    {
+      "battery": "battery3-abuse",
+      "passed": false,
+      "checks": [
+        {
+          "name": "oauth-flow",
+          "passed": false,
+          "details": "token exchange failed: 201 {\"access_token\":\"34c10d62f4269b80a9ba93a2726d463629c5ee5783944bc96f33a48ab1763949\",\"refresh_token\":\"4f6ac1f95782f0c20a065667ecbc153f412783cd1851d101756dd2528ff95a41c2cfca37ddd56db8\",\"token_type\":\"Bearer\",\"expires_in\":900}"
+        }
+      ],
+      "summary": {
+        "total": 1,
+        "passed": 0,
+        "failed": 1
+      }
+    },
+    {
+      "battery": "battery4-coherence",
+      "passed": true,
+      "checks": [
+        {
+          "name": "unfulfilled-contracts",
+          "passed": true,
+          "details": "unresolved=1: GET ${base}${path} (frontend/src/api/client.ts:15)"
+        },
+        {
+          "name": "exposed-not-invoked",
+          "passed": true,
+          "details": "informational count=0"
+        }
+      ],
+      "summary": {
+        "total": 2,
+        "passed": 2,
+        "failed": 0
+      }
+    }
+  ],
+  "passed": false
+}

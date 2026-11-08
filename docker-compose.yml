@@ -1,0 +1,35 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-medapp}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-medapp}
+      POSTGRES_DB: ${POSTGRES_DB:-medapp}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-medapp} -d ${POSTGRES_DB:-medapp}"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+  backend:
+    build: ./backend
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: postgres://${POSTGRES_USER:-medapp}:${POSTGRES_PASSWORD:-medapp}@db:5432/${POSTGRES_DB:-medapp}
+      SEED_PASSWORD: ${SEED_PASSWORD:-Seed!Passw0rd}
+      PORT: 3000
+    depends_on:
+      db:
+        condition: service_healthy
+  frontend:
+    build: ./frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+volumes:
+  postgres-data:
